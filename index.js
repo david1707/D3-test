@@ -1,13 +1,10 @@
 
 const svg = d3.select('.canvas')
     .append('svg')
-    .attr('width', 1200)
-    .attr('height', 600)
+        .attr('width', 1200)
+        .attr('height', 600)
 
 d3.json('techs.json').then(data => {
-
-    const rects = d3.selectAll('rect')
-        .data(data)
 
     const x = d3.scaleBand()
         .domain(data.map(d => d.tech))
@@ -21,9 +18,22 @@ d3.json('techs.json').then(data => {
 
     console.log(y(50))
 
-    rects.attr('width', 50)
-        .attr('height', d => d.nivell)
-        .attr('x', d => d.name)
-        .attr('y', d => 50)
+    const rects = svg.selectAll('rect')
+        .data(data)
+
+    // Add rects to rects already in the DOM
+    rects.attr('width', x.bandwidth)
+        .attr('height', d => 600 - y(d.level))
+        .attr('x', d => x(d.tech))
+        .attr('y', d => y(d.level))
         .attr('fill', 'red')
+
+    // Add new rects to the DOM
+    rects.enter()
+        .append('rect')
+            .attr('width', x.bandwidth)
+            .attr('height', d => 600 - y(d.level))
+            .attr('x', d => x(d.tech))
+            .attr('y', d => y(d.level))
+            .attr('fill', 'red')
 });
