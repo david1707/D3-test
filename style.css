@@ -1,3 +1,9 @@
 h1, .canvas {
     text-align: center;
 }
+
+.tooltip {
+    background: rgba(138, 143, 150, 0.7);
+    color: white;
+    padding: 0.5em 1em 0.5em 1em;
+}

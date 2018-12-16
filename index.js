@@ -22,6 +22,16 @@ const xAxisGroup = graph.append('g')
 
 const yAxisGroup = graph.append('g');
 
+// Tooltips
+const tip = d3.tip()
+    .attr('class', 'tip')
+    .html(d => {
+        let content = `<div class="tooltip"><h2>${d.level}% of ${d.tech}<h2></div>`;
+        return content;
+    });
+
+graph.call(tip);
+
 // Load JSON
 d3.json('techs.json').then(data => {
 
@@ -57,7 +67,16 @@ d3.json('techs.json').then(data => {
             .attr('height', d => graphHeight - y(d.level))
             .attr('x', d => x(d.tech))
             .attr('y', d => y(d.level))
-            .attr('fill', (d, i) => colour(d.level))
+            .attr('fill', (d, i) => colour(d.level));
+
+    // Events
+    graph.selectAll('rect')
+        .on('mouseover', (d, i, n) => {
+            tip.show(d, n[i]);
+        })
+        .on('mouseout', (d, i, n) => {
+            tip.hide();
+        })
     
     // Create axes
     const xAxis = d3.axisBottom(x)
