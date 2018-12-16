@@ -33,7 +33,7 @@ const tip = d3.tip()
 graph.call(tip);
 
 // Load JSON
-d3.json('techs.json').then(data => {
+d3.json('skills.json').then(data => {
 
     // X and Y scalers
     const x = d3.scaleBand()
