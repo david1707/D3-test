@@ -1,0 +1,8 @@
+[
+  {"tech": "D3", "level": 45 },
+  {"tech": "Django", "level": 60},
+  {"tech": "Python", "level": 85},
+  {"tech": "Vue", "level": 15},
+  {"tech": "Javascript", "level": 75},
+  {"tech": "Flutter", "level": 5}
+]
