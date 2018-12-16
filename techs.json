@@ -1,8 +1,11 @@
 [
-  {"tech": "D3", "level": 45 },
+  {"tech": "Angular", "level": 45 },
+  {"tech": "D3", "level": 35 },
   {"tech": "Django", "level": 60},
-  {"tech": "Python", "level": 85},
-  {"tech": "Vue", "level": 15},
+  {"tech": "DRF", "level": 50},
+  {"tech": "Flutter", "level": 5},
+  {"tech": "HTML + CSS", "level": 90},
   {"tech": "Javascript", "level": 75},
-  {"tech": "Flutter", "level": 5}
+  {"tech": "Python", "level": 85},
+  {"tech": "Vue", "level": 20}
 ]
